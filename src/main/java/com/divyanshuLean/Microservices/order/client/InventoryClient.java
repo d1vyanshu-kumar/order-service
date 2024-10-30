@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public interface InventoryClient {
     // so what kind of the method this http client will call we are defining here
     //getMethod
-    @RequestMapping(method = RequestMethod.GET, value = "/api/inventory")
+    @RequestMapping(method = RequestMethod.GET, value = "")
     boolean isInStock(@RequestParam String skuCode, @RequestParam Integer quantity);
     // similar like spring data jpa repository in which we have to only extend and use their method in the implemented class
     // now go to the order service class and inject the InventoryClient
