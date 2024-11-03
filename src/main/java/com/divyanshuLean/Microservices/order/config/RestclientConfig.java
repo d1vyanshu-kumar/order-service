@@ -32,6 +32,7 @@ public class RestclientConfig {
         return httpServiceProxyFactory.createClient(InventoryClient.class);
     }
 
+
     private ClientHttpRequestFactory getClientRequestFactory() {
         ClientHttpRequestFactorySettings clientHttpRequestFactorySettings = ClientHttpRequestFactorySettings.DEFAULTS
                 .withConnectTimeout(Duration.ofSeconds(3))
