@@ -13,10 +13,10 @@ import org.apache.avro.message.SchemaStore;
 
 @org.apache.avro.specific.AvroGenerated
 public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBase implements org.apache.avro.specific.SpecificRecord {
-  private static final long serialVersionUID = 592797997824377618L;
+  private static final long serialVersionUID = -1060662747840508474L;
 
 
-  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OrderPlacedEvent\",\"namespace\":\"com.DivyanshuLearn.microservices.order.event\",\"fields\":[{\"name\":\"orderNumber\",\"type\":\"string\"},{\"name\":\"email\",\"type\":\"string\"}]}");
+  public static final org.apache.avro.Schema SCHEMA$ = new org.apache.avro.Schema.Parser().parse("{\"type\":\"record\",\"name\":\"OrderPlacedEvent\",\"namespace\":\"com.DivyanshuLearn.microservices.order.event\",\"fields\":[{\"name\":\"orderNumber\",\"type\":\"string\"},{\"name\":\"email\",\"type\":\"string\"},{\"name\":\"firstName\",\"type\":\"string\"},{\"name\":\"lastName\",\"type\":\"string\"}]}");
   public static org.apache.avro.Schema getClassSchema() { return SCHEMA$; }
 
   private static final SpecificData MODEL$ = new SpecificData();
@@ -74,6 +74,8 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
 
   private java.lang.CharSequence orderNumber;
   private java.lang.CharSequence email;
+  private java.lang.CharSequence firstName;
+  private java.lang.CharSequence lastName;
 
   /**
    * Default constructor.  Note that this does not initialize fields
@@ -86,10 +88,14 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
    * All-args constructor.
    * @param orderNumber The new value for orderNumber
    * @param email The new value for email
+   * @param firstName The new value for firstName
+   * @param lastName The new value for lastName
    */
-  public OrderPlacedEvent(java.lang.CharSequence orderNumber, java.lang.CharSequence email) {
+  public OrderPlacedEvent(java.lang.CharSequence orderNumber, java.lang.CharSequence email, java.lang.CharSequence firstName, java.lang.CharSequence lastName) {
     this.orderNumber = orderNumber;
     this.email = email;
+    this.firstName = firstName;
+    this.lastName = lastName;
   }
 
   @Override
@@ -104,6 +110,8 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
     switch (field$) {
     case 0: return orderNumber;
     case 1: return email;
+    case 2: return firstName;
+    case 3: return lastName;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -115,6 +123,8 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
     switch (field$) {
     case 0: orderNumber = (java.lang.CharSequence)value$; break;
     case 1: email = (java.lang.CharSequence)value$; break;
+    case 2: firstName = (java.lang.CharSequence)value$; break;
+    case 3: lastName = (java.lang.CharSequence)value$; break;
     default: throw new IndexOutOfBoundsException("Invalid index: " + field$);
     }
   }
@@ -151,6 +161,40 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
    */
   public void setEmail(java.lang.CharSequence value) {
     this.email = value;
+  }
+
+  /**
+   * Gets the value of the 'firstName' field.
+   * @return The value of the 'firstName' field.
+   */
+  public java.lang.CharSequence getFirstName() {
+    return firstName;
+  }
+
+
+  /**
+   * Sets the value of the 'firstName' field.
+   * @param value the value to set.
+   */
+  public void setFirstName(java.lang.CharSequence value) {
+    this.firstName = value;
+  }
+
+  /**
+   * Gets the value of the 'lastName' field.
+   * @return The value of the 'lastName' field.
+   */
+  public java.lang.CharSequence getLastName() {
+    return lastName;
+  }
+
+
+  /**
+   * Sets the value of the 'lastName' field.
+   * @param value the value to set.
+   */
+  public void setLastName(java.lang.CharSequence value) {
+    this.lastName = value;
   }
 
   /**
@@ -196,6 +240,8 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
 
     private java.lang.CharSequence orderNumber;
     private java.lang.CharSequence email;
+    private java.lang.CharSequence firstName;
+    private java.lang.CharSequence lastName;
 
     /** Creates a new Builder */
     private Builder() {
@@ -216,6 +262,14 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
         this.email = data().deepCopy(fields()[1].schema(), other.email);
         fieldSetFlags()[1] = other.fieldSetFlags()[1];
       }
+      if (isValidValue(fields()[2], other.firstName)) {
+        this.firstName = data().deepCopy(fields()[2].schema(), other.firstName);
+        fieldSetFlags()[2] = other.fieldSetFlags()[2];
+      }
+      if (isValidValue(fields()[3], other.lastName)) {
+        this.lastName = data().deepCopy(fields()[3].schema(), other.lastName);
+        fieldSetFlags()[3] = other.fieldSetFlags()[3];
+      }
     }
 
     /**
@@ -231,6 +285,14 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       if (isValidValue(fields()[1], other.email)) {
         this.email = data().deepCopy(fields()[1].schema(), other.email);
         fieldSetFlags()[1] = true;
+      }
+      if (isValidValue(fields()[2], other.firstName)) {
+        this.firstName = data().deepCopy(fields()[2].schema(), other.firstName);
+        fieldSetFlags()[2] = true;
+      }
+      if (isValidValue(fields()[3], other.lastName)) {
+        this.lastName = data().deepCopy(fields()[3].schema(), other.lastName);
+        fieldSetFlags()[3] = true;
       }
     }
 
@@ -314,6 +376,86 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
       return this;
     }
 
+    /**
+      * Gets the value of the 'firstName' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getFirstName() {
+      return firstName;
+    }
+
+
+    /**
+      * Sets the value of the 'firstName' field.
+      * @param value The value of 'firstName'.
+      * @return This builder.
+      */
+    public com.DivyanshuLearn.microservices.order.event.OrderPlacedEvent.Builder setFirstName(java.lang.CharSequence value) {
+      validate(fields()[2], value);
+      this.firstName = value;
+      fieldSetFlags()[2] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'firstName' field has been set.
+      * @return True if the 'firstName' field has been set, false otherwise.
+      */
+    public boolean hasFirstName() {
+      return fieldSetFlags()[2];
+    }
+
+
+    /**
+      * Clears the value of the 'firstName' field.
+      * @return This builder.
+      */
+    public com.DivyanshuLearn.microservices.order.event.OrderPlacedEvent.Builder clearFirstName() {
+      firstName = null;
+      fieldSetFlags()[2] = false;
+      return this;
+    }
+
+    /**
+      * Gets the value of the 'lastName' field.
+      * @return The value.
+      */
+    public java.lang.CharSequence getLastName() {
+      return lastName;
+    }
+
+
+    /**
+      * Sets the value of the 'lastName' field.
+      * @param value The value of 'lastName'.
+      * @return This builder.
+      */
+    public com.DivyanshuLearn.microservices.order.event.OrderPlacedEvent.Builder setLastName(java.lang.CharSequence value) {
+      validate(fields()[3], value);
+      this.lastName = value;
+      fieldSetFlags()[3] = true;
+      return this;
+    }
+
+    /**
+      * Checks whether the 'lastName' field has been set.
+      * @return True if the 'lastName' field has been set, false otherwise.
+      */
+    public boolean hasLastName() {
+      return fieldSetFlags()[3];
+    }
+
+
+    /**
+      * Clears the value of the 'lastName' field.
+      * @return This builder.
+      */
+    public com.DivyanshuLearn.microservices.order.event.OrderPlacedEvent.Builder clearLastName() {
+      lastName = null;
+      fieldSetFlags()[3] = false;
+      return this;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public OrderPlacedEvent build() {
@@ -321,6 +463,8 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
         OrderPlacedEvent record = new OrderPlacedEvent();
         record.orderNumber = fieldSetFlags()[0] ? this.orderNumber : (java.lang.CharSequence) defaultValue(fields()[0]);
         record.email = fieldSetFlags()[1] ? this.email : (java.lang.CharSequence) defaultValue(fields()[1]);
+        record.firstName = fieldSetFlags()[2] ? this.firstName : (java.lang.CharSequence) defaultValue(fields()[2]);
+        record.lastName = fieldSetFlags()[3] ? this.lastName : (java.lang.CharSequence) defaultValue(fields()[3]);
         return record;
       } catch (org.apache.avro.AvroMissingFieldException e) {
         throw e;
@@ -357,6 +501,10 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
 
     out.writeString(this.email);
 
+    out.writeString(this.firstName);
+
+    out.writeString(this.lastName);
+
   }
 
   @Override public void customDecode(org.apache.avro.io.ResolvingDecoder in)
@@ -368,8 +516,12 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
 
       this.email = in.readString(this.email instanceof Utf8 ? (Utf8)this.email : null);
 
+      this.firstName = in.readString(this.firstName instanceof Utf8 ? (Utf8)this.firstName : null);
+
+      this.lastName = in.readString(this.lastName instanceof Utf8 ? (Utf8)this.lastName : null);
+
     } else {
-      for (int i = 0; i < 2; i++) {
+      for (int i = 0; i < 4; i++) {
         switch (fieldOrder[i].pos()) {
         case 0:
           this.orderNumber = in.readString(this.orderNumber instanceof Utf8 ? (Utf8)this.orderNumber : null);
@@ -377,6 +529,14 @@ public class OrderPlacedEvent extends org.apache.avro.specific.SpecificRecordBas
 
         case 1:
           this.email = in.readString(this.email instanceof Utf8 ? (Utf8)this.email : null);
+          break;
+
+        case 2:
+          this.firstName = in.readString(this.firstName instanceof Utf8 ? (Utf8)this.firstName : null);
+          break;
+
+        case 3:
+          this.lastName = in.readString(this.lastName instanceof Utf8 ? (Utf8)this.lastName : null);
           break;
 
         default:
