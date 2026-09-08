@@ -18,7 +18,8 @@ import static org.hamcrest.MatcherAssert.assertThat;
 class OrderServiceApplicationTests {
 
 	@ServiceConnection
-	static MySQLContainer mySQLContainer = new MySQLContainer("mysql:8.3.0");
+	static MySQLContainer<?> mySQLContainer = new MySQLContainer<>("mysql:8.3.0");
+
 	@LocalServerPort
 	private Integer port;
 
@@ -38,7 +39,12 @@ class OrderServiceApplicationTests {
                 {
                      "skuCode": "iphone_15",
                      "price": 30000,
-                     "quantity": 1
+                     "quantity": 1,
+                     "userDetails": {
+                         "email": "test@example.com",
+                         "firstName": "John",
+                         "lastName": "Doe"
+                     }
                 }
                 """;
 		InventoryClientStub.stubInventoryCall("iphone_15", 1);
@@ -63,10 +69,36 @@ class OrderServiceApplicationTests {
                 {
                      "skuCode": "iphone_15",
                      "price": 1000,
-                     "quantity": 1000
+                     "quantity": 1000,
+                     "userDetails": {
+                         "email": "test@example.com",
+                         "firstName": "John",
+                         "lastName": "Doe"
+                     }
                 }
                 """;
 		InventoryClientStub.stubInventoryCall("iphone_15", 1000);
+
+		RestAssured.given()
+				.contentType("application/json")
+				.body(submitOrderJson)
+				.when()
+				.post("/api/order")
+				.then()
+				.log().all()
+				.statusCode(500);
+	}
+
+	@Test
+	void shouldFailOrderWhenUserDetailsAreMissing() {
+		String submitOrderJson = """
+                {
+                     "skuCode": "iphone_15",
+                     "price": 30000,
+                     "quantity": 1
+                }
+                """;
+		InventoryClientStub.stubInventoryCall("iphone_15", 1);
 
 		RestAssured.given()
 				.contentType("application/json")
