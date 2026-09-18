@@ -161,6 +161,9 @@
 
 
 
+
+
+
 	</dependencies>
 	<dependencyManagement>
 		<dependencies>
@@ -171,7 +174,10 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-		</dependencies>
+	
+
+
+	</dependencies>
 	</dependencyManagement>
 
 
@@ -193,6 +199,7 @@
 			<plugin>
 				<groupId>org.apache.avro</groupId>
 				<artifactId>avro-maven-plugin</artifactId>
+				<version>1.11.3</version>
 				<executions>
 					<execution>
 						<id>schemas</id>
